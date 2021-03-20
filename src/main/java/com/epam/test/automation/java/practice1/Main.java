@@ -1,5 +1,10 @@
 package com.epam.test.automation.java.practice1;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Stream;
+
 public class Main {
 
     /**
@@ -8,8 +13,13 @@ public class Main {
      * </summary>
      */
     public static int task1(int n) {
-        //TODO: Delete line below and write your own solution;
-        throw new UnsupportedOperationException();
+        if(n>0){
+            return n*n;
+        }
+        if(n<0){
+            return -n;
+        }
+        return 0;
     }
 
     /**
@@ -18,8 +28,65 @@ public class Main {
      * </summary>
      */
     public static int task2(int n) {
-        //TODO: Delete line below and write your own solution;
-        throw new UnsupportedOperationException();
+        if(n>999 || n<100) {
+            throw new IllegalArgumentException();
+        }
+        /*
+        List<Integer> numbs = new ArrayList<>();
+
+        //split
+        int temp = n;
+        do{
+            numbs.add(temp%10);
+            temp=temp/10;
+        }while(temp>0);
+
+        numbs.sort(Collections.reverseOrder());
+
+        //combine
+        int result = 0;
+        for(Integer v : numbs){
+            result = 10*result+v;
+        }
+        return result;*/
+
+        int[] numbs = new int[3];
+        int temp = n;
+        int i = 0;
+
+        //split
+        do{
+            numbs[i] = temp%10;
+            temp = temp/10;
+            i++;
+        }while (temp>0);
+
+        //sort
+        int max = numbs[0];
+        int j = 0;
+
+        while (j < 2){
+
+            //find max and swap
+            for( i = j+1; i < 3; i++){
+                if(numbs[i]>max){
+                    int swap = numbs[i];
+                    numbs[i] = numbs[j];
+                    numbs[j] = swap;
+                }
+            }
+
+            j++;
+            max = numbs[j];
+        }
+
+        //combine
+        int result = 0;
+        for( i = 0; i < 3; i++){
+            result = 10*result + numbs[i];
+        }
+
+        return result;
     }
 
 }
