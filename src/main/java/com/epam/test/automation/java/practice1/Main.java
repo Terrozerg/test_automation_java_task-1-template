@@ -65,9 +65,4 @@ public class Main {
 
         return result;
     }
-
-    public static void main(String[] args) {
-        System.out.println(task2(1000));
-    }
-
 }
