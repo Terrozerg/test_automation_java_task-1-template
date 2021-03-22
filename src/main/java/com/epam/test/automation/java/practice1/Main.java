@@ -1,10 +1,5 @@
 package com.epam.test.automation.java.practice1;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Stream;
-
 public class Main {
 
     /**
@@ -29,26 +24,8 @@ public class Main {
      */
     public static int task2(int n) {
         if(n>999 || n<100) {
-            throw new IllegalArgumentException();
+            return -1;
         }
-        /*
-        List<Integer> numbs = new ArrayList<>();
-
-        //split
-        int temp = n;
-        do{
-            numbs.add(temp%10);
-            temp=temp/10;
-        }while(temp>0);
-
-        numbs.sort(Collections.reverseOrder());
-
-        //combine
-        int result = 0;
-        for(Integer v : numbs){
-            result = 10*result+v;
-        }
-        return result;*/
 
         int[] numbs = new int[3];
         int temp = n;
@@ -87,6 +64,10 @@ public class Main {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(task2(1000));
     }
 
 }
