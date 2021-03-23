@@ -2,6 +2,8 @@ package com.epam.test.automation.java.practice1;
 
 public class Main {
 
+    private Main(){}
+
     /**
      * <summary>
      * Implement code according to description of task 1.
